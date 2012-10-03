@@ -1,4 +1,18 @@
 Restaurante::Application.routes.draw do
+  resources :orders
+
+  resources :tables
+
+  resources :categories
+
+  resources :clients
+
+  resources :courses
+
+  resources :waiters
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
