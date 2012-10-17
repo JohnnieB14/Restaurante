@@ -15,6 +15,16 @@
   <%= @order.client_id %>
 </p>
 
+<p>
+  <b>Paid:</b>
+  <%= @order.paid %>
+</p>
+
+<p>
+  <b>Request time:</b>
+  <%= @order.request_time %>
+</p>
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

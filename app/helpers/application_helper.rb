@@ -1,6 +1,7 @@
+#coding: utf-8
 module ApplicationHelper
   def full_title(page_title)
-      base_title = "Aplicacion Restaurante"
+      base_title = "Aplicación Restaurantes"
       if page_title.empty?
         base_title
       else

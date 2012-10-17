@@ -1,12 +1,14 @@
 Restaurante::Application.routes.draw do
   
+  get "register/new"
+
   root to: 'static#index'
+  
+  match 'signup', to: 'register#new' 
   
   match 'about', to: "static#about"
   
   match 'contact', to: "static#contact"
-  
-  match 'help', to: "static#help"
   
   resources :categories
 

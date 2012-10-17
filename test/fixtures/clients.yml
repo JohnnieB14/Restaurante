@@ -4,12 +4,10 @@ one:
   name: MyString
   surname: MyString
   email: MyString
-  paid: false
-  request_time: 2012-10-01 22:07:02
+  password: MyString
 
 two:
   name: MyString
   surname: MyString
   email: MyString
-  paid: false
-  request_time: 2012-10-01 22:07:02
+  password: MyString

@@ -4,8 +4,12 @@ one:
   course_id: 1
   table_id: 1
   client_id: 1
+  paid: false
+  request_time: 2012-10-17 17:32:31
 
 two:
   course_id: 1
   table_id: 1
   client_id: 1
+  paid: false
+  request_time: 2012-10-17 17:32:31

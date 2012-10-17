@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :email, :name, :paid, :request_time, :surname
+  attr_accessible :email, :name, :surname, :password
   
   has_many :orders
   
