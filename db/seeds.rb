@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)ail => 'admin@appr.com', :privileges => -1);
+
+if User.count == 0
+  puts "Creating Admin User"
+  User.create(:name => 'Administrator', :surname => ' ', :email => 'admin@app.com', :privileges => -1)
+end
