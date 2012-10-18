@@ -1,10 +1,11 @@
 @import "bootstrap";
 
-/* mixins, variables, etc. */
+/* Mixins, Variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$navyBlue: #0066CC;
 
-/* universal */
+/* Universal */
 
 html {
   overflow-y: scroll;
@@ -29,7 +30,12 @@ textarea {
   }
 }
 
-/* typography */
+.hero-unit {
+  background-color: $white;
+  padding: 14px;
+}
+
+/* Typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -57,35 +63,37 @@ p {
 }
 
 
-/* header */
+/* Header */
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: $white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: $white;
     text-decoration: none;
   }
 }
 
-/* footer */
+/* Footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  margin-top: 47px;
+  padding-top: 17px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
     color: $gray;
     &:hover { 
-      color: $grayDarker;
+	  background-color: $white;
+      color: $navyBlue;
+      text-decoration: none;
     }
   }  
   small { 
@@ -99,4 +107,26 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+/* Custom */
+
+.app a {
+	font-size: 36px;
+	 &:hover{
+	 	background-color: $white;
+		font-size: 40px;
+		text-decoration: none;
+	}
+}
+
+.foot {
+    background-color: #2D69AA !important;
+	cursor: help !important;
+}
+
+a.label{
+	&:visited{
+ 		color: $white;
+	}
 }

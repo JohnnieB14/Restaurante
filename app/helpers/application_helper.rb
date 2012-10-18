@@ -1,7 +1,7 @@
 #coding: utf-8
 module ApplicationHelper
   def full_title(page_title)
-      base_title = "Aplicación Restaurantes"
+      base_title = "Easy Check | Chili's"
       if page_title.empty?
         base_title
       else
