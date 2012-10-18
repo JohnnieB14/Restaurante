@@ -1,18 +1,25 @@
-<<<<<<< HEAD
-if User.count == 0
   puts "Creating Admin User"
-  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :privileges => -1)
-=======
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)ail => 'admin@appr.com', :privileges => -1);
-
-if User.count == 0
-  puts "Creating Admin User"
-  User.create(:name => 'Administrator', :surname => ' ', :email => 'admin@app.com', :privileges => -1)
->>>>>>> 09a125e7046d71b1d14ceef92c700ac3700319bd
-end
+  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :privileges => -1);
+  puts "Creating Test User"
+  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password => 'be092a414817ff761949e046f4adf169');
+  puts "Creating Test Waiters"
+  Waiter.create(:name => 'Test', :surname => 'Waiter', :email => 'testw@app.com');  
+  Waiter.create(:name => 'Final', :surname => 'Waiter', :email => 'finalw@app.com');
+  puts "Creating Test Tables"
+  Table.create(:code => '295bea', :waiter_id => 1);
+  Table.create(:code => 'd6a5ad', :waiter_id => 2);
+  puts "Creating Test Categories"
+  Category.create(:name => 'Beverages', :image => 'assets/images/desserts.png');
+  Category.create(:name => 'Desserts', :image => 'assets/images/desserts.png');
+  Category.create(:name => 'Seafood', :image => 'assets/images/seafood.png');
+  puts "Creating Test Courses"
+  puts " Category 1"
+  Course.create(:name => 'Coke', :price => 30, :image => 'assets/images/courses/coke.png', :category_id => 1);
+  Course.create(:name => 'Margarita', :price => 70, :image => 'assets/images/courses/margarita.png', :category_id => 1);
+  puts " Category 2"
+  Course.create(:name => 'Chocolate Cake', :price => 40, :image => 'assets/images/courses/chocolate_c.png', :category_id => 2);
+  Course.create(:name => 'Strawberry Cupcake', :price => 60, :image => 'assets/images/courses/strawberry_c.png', :category_id => 2);
+  puts " Category 3"
+  Course.create(:name => 'Minted Salmon', :price => 300, :image => 'assets/images/courses/salmon.png', :category_id => 3);
+  Course.create(:name => 'Shrimp Cocktail', :price => 100, :image => 'assets/images/courses/shrimp.png', :category_id => 3);
+  puts "Initial Setup Done"
