@@ -25,5 +25,9 @@ if User.count == 0 && Client.count == 0 && Waiter.count == 0 && Table.count == 0
   Course.create(:name => 'Shrimp Cocktail', :price => 100, :image => 'assets/images/courses/shrimp.png', :category_id => 3);
   puts "Initial Setup Done"
 else
+  puts "Creating Admin User"
+  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :password => '5cd29c08df861e0cb8ecf344a1fe6266', :privileges => -1);
+  puts "Creating Test User"
+  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password => 'be092a414817ff761949e046f4adf169');
   puts "Initial Setup Alredy Done - Drop/Truncate Database To Seed Again"
 end
