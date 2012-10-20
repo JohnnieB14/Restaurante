@@ -1,8 +1,8 @@
 if User.count == 0 && Client.count == 0 && Waiter.count == 0 && Table.count == 0 && Category.count == 0 && Course.count == 0
   puts "Creating Admin User"
-  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :password_digest => '5cd29c08df861e0cb8ecf344a1fe6266', :privileges => -1);
+  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :password => '5cd29c08df861e0cb8ecf344a1fe6266', :privileges => -1);
   puts "Creating Test User"
-  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password_digest => 'be092a414817ff761949e046f4adf169');
+  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password => 'be092a414817ff761949e046f4adf169');
   puts "Creating Test Waiters"
   Waiter.create(:name => 'Test', :surname => 'Waiter');  
   Waiter.create(:name => 'Final', :surname => 'Waiter');
