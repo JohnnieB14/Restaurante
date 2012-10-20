@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017224520) do
+ActiveRecord::Schema.define(:version => 20120108) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 120, :null => false
@@ -21,13 +21,15 @@ ActiveRecord::Schema.define(:version => 20121017224520) do
   end
 
   create_table "clients", :force => true do |t|
-    t.string   "name",       :limit => 120, :null => false
-    t.string   "surname",    :limit => 120, :null => false
-    t.string   "email",      :limit => 120, :null => false
-    t.string   "password",   :limit => 120, :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "name",            :limit => 120, :null => false
+    t.string   "surname",         :limit => 120, :null => false
+    t.string   "email",           :limit => 120, :null => false
+    t.string   "password_digest", :limit => 120, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
+
+  add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
 
   create_table "courses", :force => true do |t|
     t.string   "name",        :limit => 120, :null => false
@@ -56,13 +58,16 @@ ActiveRecord::Schema.define(:version => 20121017224520) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",       :limit => 120, :null => false
-    t.string   "surname",    :limit => 120, :null => false
-    t.string   "email",      :limit => 120, :null => false
-    t.integer  "privileges",                :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "name",            :limit => 120, :null => false
+    t.string   "surname",         :limit => 120, :null => false
+    t.string   "email",           :limit => 120, :null => false
+    t.string   "password_digest", :limit => 120, :null => false
+    t.integer  "privileges",                     :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
   create_table "waiters", :force => true do |t|
     t.string   "name",       :limit => 120, :null => false

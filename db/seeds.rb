@@ -1,15 +1,16 @@
+if User.count == 0 && Client.count == 0 && Waiter.count == 0 && Table.count == 0 && Category.count == 0 && Course.count == 0
   puts "Creating Admin User"
-  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :privileges => -1);
+  User.create(:name => 'Administrator', :surname => '', :email => 'admin@app.com', :password_digest => '5cd29c08df861e0cb8ecf344a1fe6266', :privileges => -1);
   puts "Creating Test User"
-  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password => 'be092a414817ff761949e046f4adf169');
+  Client.create(:name => 'Test', :surname => 'User', :email => 'testu@app.com', :password_digest => 'be092a414817ff761949e046f4adf169');
   puts "Creating Test Waiters"
-  Waiter.create(:name => 'Test', :surname => 'Waiter', :email => 'testw@app.com');  
-  Waiter.create(:name => 'Final', :surname => 'Waiter', :email => 'finalw@app.com');
+  Waiter.create(:name => 'Test', :surname => 'Waiter');  
+  Waiter.create(:name => 'Final', :surname => 'Waiter');
   puts "Creating Test Tables"
   Table.create(:code => '295bea', :waiter_id => 1);
   Table.create(:code => 'd6a5ad', :waiter_id => 2);
   puts "Creating Test Categories"
-  Category.create(:name => 'Beverages', :image => 'assets/images/desserts.png');
+  Category.create(:name => 'Beverages', :image => 'assets/images/beverages.png');
   Category.create(:name => 'Desserts', :image => 'assets/images/desserts.png');
   Category.create(:name => 'Seafood', :image => 'assets/images/seafood.png');
   puts "Creating Test Courses"
@@ -23,3 +24,6 @@
   Course.create(:name => 'Minted Salmon', :price => 300, :image => 'assets/images/courses/salmon.png', :category_id => 3);
   Course.create(:name => 'Shrimp Cocktail', :price => 100, :image => 'assets/images/courses/shrimp.png', :category_id => 3);
   puts "Initial Setup Done"
+else
+  puts "Initial Setup Alredy Done - Drop/Truncate Database To Seed Again"
+end

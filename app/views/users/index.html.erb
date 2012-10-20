@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Surname</th>
     <th>Email</th>
+    <th>Password digest</th>
     <th>Privileges</th>
     <th></th>
     <th></th>
@@ -16,6 +17,7 @@
     <td><%= user.name %></td>
     <td><%= user.surname %></td>
     <td><%= user.email %></td>
+    <td><%= user.password_digest %></td>
     <td><%= user.privileges %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

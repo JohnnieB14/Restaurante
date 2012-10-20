@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Surname</th>
     <th>Email</th>
-    <th>Password</th>
+    <th>Password digest</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +16,7 @@
     <td><%= client.name %></td>
     <td><%= client.surname %></td>
     <td><%= client.email %></td>
-    <td><%= client.password %></td>
+    <td><%= client.password_digest %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
     <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
