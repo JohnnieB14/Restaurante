@@ -11,8 +11,8 @@ module ApplicationHelper
   
   # Returns the Gravatar (http://gravatar.com/) for the given user.
   def gravatar(i)
-    gravatar_id = Digest::MD5::hexdigest(i.email.downcase)
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-    image_tag(gravatar_url, alt: i.name, class: "gravatar")
+    id = Digest::MD5::hexdigest(i.email.downcase)
+    url = "https://secure.gravatar.com/avatar/#{id}?d=identicon"
+    image_tag(url, alt: i.name, class: "gravatar")
   end
 end
