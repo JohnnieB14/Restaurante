@@ -1,15 +1,12 @@
 <footer class="footer">
-  <div class="rigth"> 
-  	<%= link_to image_tag("logo.png", alt: "Logo", heigth: "100", width: "70"), root_path %>
-  </div>
-  <small>
-    <a href="#">Copyright © 2012 Easy Check</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Acerca de ...",   about_path, class: "foot label label-info" %></li>
-	  <li>|</li>
-      <li><%= link_to "Contacto", contact_path, class: "foot label label-info" %></li>
-    </ul>
-  </nav>
+	<small>
+		<a href="#">Copyright © 2012 Easy Check</a>
+	</small>
+	<nav>
+		<ul>
+			<li><%= link_to "Acerca de ...",   about_path, class: "foot" %></li>
+			<li>|</li>
+			<li><%= link_to "Contacto", contact_path, class: "foot" %></li>
+		</ul>
+	</nav>
 </footer>
