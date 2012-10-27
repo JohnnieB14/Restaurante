@@ -21,7 +21,7 @@ if User.count == 0 && Client.count == 0 && Waiter.count == 0 && Table.count == 0
   Course.create(:name => 'Pastel de Chocolate', :price => 40, :image => 'assets/images/courses/chocolate_c.png', :category_id => 2)
   Course.create(:name => 'Pastel de Fresa', :price => 60, :image => 'assets/images/courses/strawberry_c.png', :category_id => 2)
   puts " Category 3"
-  Course.create(:name => 'Coctél de Camarón', :price => 100, :image => 'assets/images/courses/shrimp.png', :category_id => 3)
+  Course.create(:name => 'Coctel de Camaron', :price => 100, :image => 'assets/images/courses/shrimp.png', :category_id => 3)
   Course.create(:name => 'Salmón a la Plancha', :price => 300, :image => 'assets/images/courses/salmon.png', :category_id => 3)
   puts "Initial Setup Done"
 else
