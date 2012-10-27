@@ -1,31 +1,49 @@
-<h1>Listing users</h1>
+<% provide(:title, 'Usuarios') %>
+<div class="center hero-unit">
+	<h1>Lista de usuarios</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Email</th>
-    <th>Password digest</th>
-    <th>Privileges</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<br/>
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Privilegios</th>
+			<th>Editar</th>
+			<th>Borrar</th>
+		</tr>
+		</thead>
+		<tbody>	
+			<% @users.each do |user| %>
+			  <tr>
+				<td><%= user.id %></td>
+			    <td><%= user.name %></td>
+			    <td><%= user.surname %></td>
+			    <td><%= user.email %></td>
+			    <td>
+					<% if user.privileges == -1 %>	
+						Administrador
+					<% elsif user.privileges == 0 %>
+						Supervisor
+					<% elsif user.privileges == 1 %>
+						Mesero
+					<%end%>
+				</td>
+			    <td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_user_path(user) %></td>
+			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), user, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.surname %></td>
-    <td><%= user.email %></td>
-    <td><%= user.password_digest %></td>
-    <td><%= user.privileges %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<br />
+	
+	<%= link_to 'New User', new_user_path %>
 
-<br />
+</div>
 
-<%= link_to 'New User', new_user_path %>
+
+

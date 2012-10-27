@@ -24,8 +24,8 @@
     <%= f.text_field :image %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+	<%= f.label :category %><br />
+    <%= f.select(:category_id , options_for_select([['Lisbon', 1], ['Madrid', 2],],1))%><br />
   </div>
   <div class="actions">
     <%= f.submit %>

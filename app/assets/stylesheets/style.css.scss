@@ -43,6 +43,11 @@ textarea
 	}
 }
 
+.justify
+{
+	text-align: justify;
+}
+
 .hero-unit 
 {
 	background-color: $white;
@@ -220,6 +225,12 @@ input, textarea, select, .uneditable-input
 {
 	heigth: 400px;
 	width: 300px;
+}
+
+.table th, .table td
+{
+	text-align: center !important;
+	vertical-align: middle !important; 
 }
 
 /*Miscellaneous */

@@ -25,6 +25,7 @@ class CoursesController < ApplicationController
   # GET /courses/new.json
   def new
     @course = Course.new
+    @category = Category.all
 
     respond_to do |format|
       format.html # new.html.erb

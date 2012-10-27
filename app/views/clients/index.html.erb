@@ -1,29 +1,31 @@
-<h1>Listing clients</h1>
+<% provide(:title, 'Clientes') %>
+<div class="center hero-unit">
+	<h1>Lista de clientes</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th>Email</th>
-    <th>Password digest</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<br/>
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Borrar</th>
+		</tr>
+		</thead>
+		<tbody>	
+			<% @clients.each do |client| %>
+			  <tr>
+				<td><%= client.id %></td>
+			    <td><%= client.name %></td>
+			    <td><%= client.surname %></td>
+			    <td><%= client.email %></td>
+			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), client, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
 
-<% @clients.each do |client| %>
-  <tr>
-    <td><%= client.name %></td>
-    <td><%= client.surname %></td>
-    <td><%= client.email %></td>
-    <td><%= client.password_digest %></td>
-    <td><%= link_to 'Show', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Client', new_client_path %>
+	<br />
+</div>

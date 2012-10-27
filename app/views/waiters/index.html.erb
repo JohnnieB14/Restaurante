@@ -1,25 +1,34 @@
-<h1>Listing waiters</h1>
+<% provide(:title, 'Meseros') %>
+<div class="center hero-unit">
+	<h1>Lista de meseros</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Surname</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<br/>
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Editar</th>
+			<th>Borrar</th>
+		</tr>
+		</thead>
+		<tbody>	
+			<% @waiters.each do |waiter| %>
+			  <tr>
+				<td><%= waiter.id %></td>
+			  	<td><%= waiter.name %></td>
+			    <td><%= waiter.surname %></td>
+			    <td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_waiter_path(waiter) %></td>
+			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), waiter, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
 
-<% @waiters.each do |waiter| %>
-  <tr>
-    <td><%= waiter.name %></td>
-    <td><%= waiter.surname %></td>
-    <td><%= link_to 'Show', waiter %></td>
-    <td><%= link_to 'Edit', edit_waiter_path(waiter) %></td>
-    <td><%= link_to 'Destroy', waiter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<br />
+	
+	<%= link_to 'Nuevo Mesero', new_waiter_path %>
 
-<br />
-
-<%= link_to 'New Waiter', new_waiter_path %>
+</div>

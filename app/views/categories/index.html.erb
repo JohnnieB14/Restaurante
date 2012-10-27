@@ -1,30 +1,35 @@
-<% provide(:title, 'Acerca de...') %>
+<% provide(:title, 'Categorias') %>
 <div class="center hero-unit">
-	<h1>Listing categories</h1>
+	<h1>Lista de categorias</h1>
 
-	<table class="table">
+	<br/>
+	
+	<table class="table table-bordered table-hover">
+		<thead>
 		<tr>
-			<th>Name</th>
-			<th>Image</th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th>Id</th>
+			<th>Categoria</th>
+			<th>Imagen</th>
+			<th>Editar</th>
+			<th>Borrar</th>
 		</tr>
-
+		</thead>
+		<tbody>
 		<% @categories.each do |category| %>
 		<tr>
+			<td><%= category.id %></td>
 			<td><%= category.name %></td>
 			<td><%= image_tag(category.image, alt: category.name) %></td>
-			<td><%= link_to 'Show', category %></td>
-			<td><%= link_to 'Edit', edit_category_path(category) %></td>
-			<td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_category_path(category) %></td>
+			<td><%= link_to image_tag("delete.png", alt: 'Borrar'), category, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
 		</tr>
 		<% end %>
+		</tbody>
 	</table>
 
 	<br />
 
-	<%= link_to 'New Category', new_category_path %>   
+	<%= link_to 'Nueva Categoria', new_category_path %>   
 </div>
 
 
