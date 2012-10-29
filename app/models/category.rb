@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
 
   has_many :courses
 
+  validates :name, length: { maximum: 40, minimum: 1 }, presence: true 
+
 end

@@ -1,9 +1,10 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-
+    @my = User.find(1)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    emessages
+    @my = User.find(1)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,15 +38,22 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    emessages
+    @my = User.find(1)
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    emessages
+    @my = User.find(1)
 
     respond_to do |format|
       if @user.save
+        if(@user.privileges == 1)
+          @waiter = Waiter.create(:name => @user.name,:surname => @user.surname)
+        end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -57,7 +67,9 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    emessages
+    @my = User.find(1)
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

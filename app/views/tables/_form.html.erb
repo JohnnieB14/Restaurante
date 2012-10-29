@@ -1,25 +1,21 @@
-<%= form_for(@table) do |f| %>
-  <% if @table.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@table) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-      <ul>
-      <% @table.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		<%= f.label :code, "Código" %>
+		<%if @table.code.nil? == false%>
+			<%= f.text_field :code %>
+		<% else %>
+			<%= f.text_field :code, value: code %>
+		<% end %>
+		
+		<%= f.label :waiter_id, "Mesero" %>
+	    <%= f.select(:waiter_id , options_from_collection_for_select(Waiter.all, :id, :name, @table.waiter_id), { :include_blank => true})%>
+	    
+		<%= f.submit "Enviar", class: "btn btn-large signup_btn" %>
+		<% end %>
+	</div>
+</div>
 
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :waiter_id %><br />
-    <%= f.number_field :waiter_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= link_to image_tag("back.png", alt: 'Atrás', style:'float:right'), tables %>

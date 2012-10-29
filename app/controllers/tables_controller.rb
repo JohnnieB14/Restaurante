@@ -25,7 +25,8 @@ class TablesController < ApplicationController
   # GET /tables/new.json
   def new
     @table = Table.new
-
+    emessages
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @table }
@@ -35,12 +36,14 @@ class TablesController < ApplicationController
   # GET /tables/1/edit
   def edit
     @table = Table.find(params[:id])
+    emessages
   end
 
   # POST /tables
   # POST /tables.json
   def create
     @table = Table.new(params[:table])
+    emessages
 
     respond_to do |format|
       if @table.save
@@ -57,6 +60,7 @@ class TablesController < ApplicationController
   # PUT /tables/1.json
   def update
     @table = Table.find(params[:id])
+    emessages
 
     respond_to do |format|
       if @table.update_attributes(params[:table])

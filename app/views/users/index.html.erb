@@ -12,8 +12,10 @@
 			<th>Apellido</th>
 			<th>Email</th>
 			<th>Privilegios</th>
-			<th>Editar</th>
-			<th>Borrar</th>
+			<% if @my.privileges == -1 %>
+				<th>Editar</th>
+				<th>Borrar</th>
+			<% end %>
 		</tr>
 		</thead>
 		<tbody>	
@@ -32,8 +34,10 @@
 						Mesero
 					<%end%>
 				</td>
-			    <td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_user_path(user) %></td>
-			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), user, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+				<% if @my.privileges == -1 %>
+			    	<td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_user_path(user) %></td>
+			    	<td><%= link_to image_tag("delete.png", alt: 'Borrar'), user, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+				<%end%>
 			  </tr>
 			<% end %>
 		</tbody>
@@ -41,8 +45,9 @@
 
 	<br />
 	
-	<%= link_to 'New User', new_user_path %>
-
+	<% if @my.privileges == -1  || @my.privileges == 0 %>	
+		<%= link_to 'Nuevo Usuario', new_user_path %>
+	<%end%>
 </div>
 
 

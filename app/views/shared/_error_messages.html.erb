@@ -1,12 +1,72 @@
+<% if @category.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		El alta de la categoria contiene <%= pluralize(@category.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @category.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 <% if @client.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-error">
-      The form contains <%= pluralize(@client.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @client.errors.full_messages.each do |msg| %>
-      <li>* <%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		Tu registro contiene <%= pluralize(@client.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @client.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<% if @course.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		El alta del platillo contiene <%= pluralize(@course.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @course.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<% if @table.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		El alta de la mesa contiene <%= pluralize(@table.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @table.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		El registro contiene <%= pluralize(@user.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<% if @waiter.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		El registro contiene <%= pluralize(@waiter.errors.count, "errore") %>.
+	</div>
+	<ul>
+		<% @waiter.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
 <% end %>

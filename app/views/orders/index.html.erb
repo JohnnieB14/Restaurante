@@ -13,17 +13,23 @@
 			<th>Cliente</th>
 			<th>Pagado</th>
 			<th>Hora Pedido</th>
+			<th>Borrar</th>
 		</tr>
 		</thead>
 		<tbody>	
 			<% @orders.each do |order| %>
 			  <tr>
 				<td><%= order.id %></td>
-				<td><%= order.course_id %></td>
 			    <td><%= order.table_id %></td>
-			    <td><%= order.client_id %></td>
-			    <td><%= order.paid %></td>
-			    <td><%= order.request_time %></td>
+				<td><%= Course.find(order.course_id).name %></td>
+			    <td><%= Client.find(order.client_id).name + ' ' + Client.find(order.client_id).surname %></td>
+			    <% if order.paid == true %>
+					<td><%= image_tag("yes.png", alt: "Si") %></td>
+				<% else %>
+					<td><%= image_tag("no.png", alt: "No") %></td>
+				<% end %>
+			    <td><%= order.request_time.to_formatted_s(:time) %></td>
+				<td><%= link_to image_tag("delete.png", alt: 'Borrar'), order, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
 			  </tr>
 			<% end %>
 		</tbody>

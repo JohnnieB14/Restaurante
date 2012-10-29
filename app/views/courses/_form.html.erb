@@ -1,33 +1,31 @@
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@course) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		<%= f.label :name, "Nombre" %>
+		<%= f.text_field :name %>
+		
+		<%= f.label :price %>
+	    <%= f.number_field :price %>
+	
+		<%= f.label :image, "Imagen" %>
+		<%if @course.image.nil? == false%>
+			<% if @course.image.empty? == false%>
+				<%= f.text_field :image %>
+			<% else %>
+				<%= f.text_field :image, value: 'courses/'%>
+			<% end %>
+		<% else %>
+			<%= f.text_field :image, value: 'courses/' %>
+		<% end %>
+		
+		<%= f.label :category, "Categoria" %>
+	    <%= f.select(:category_id , options_from_collection_for_select(Category.all, :id, :name, @course.category_id), { :include_blank => true}) %>
+	    
+		<%= f.submit "Enviar", class: "btn btn-large signup_btn" %>
+		<% end %>
+	</div>
+</div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
-	<%= f.label :category %><br />
-    <%= f.select(:category_id , options_for_select([['Lisbon', 1], ['Madrid', 2],],1))%><br />
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= link_to image_tag("back.png", alt: 'Atrás', style:'float:right'), courses %>

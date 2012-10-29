@@ -1,36 +1,31 @@
-<%= form_for(@user) do |f| %>
-<% if @user.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-	<ul>
-		<% @user.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
+		<%= f.label :name, "Nombre" %>
+		<%= f.text_field :name %>
+
+		<%= f.label :surname, "Apellido" %>
+		<%= f.text_field :surname %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+
+		<%= f.label :password_confirmation, "Confirmación" %>
+		<%= f.password_field :password_confirmation %>
+
+		<%= f.label :privileges %>
+		<% if @my.privileges == -1 %>	
+			<%= f.select(:privileges , options_for_select([['Administrador', -1], ['Supervisor', 0], ['Mesero', 1], ], @user.privileges), { :include_blank => true}) %>
+		<% elsif @my.privileges == 0 %>	
+			<%= f.select(:privileges , options_for_select([['Supervisor', 0], ['Mesero', 1], ], @user.privileges), { :include_blank => true}) %>
+		<%end%>
+		
+		<%= f.submit "Enviar", class: "btn btn-large signup_btn center" %>
 		<% end %>
-	</ul>
+	</div>
 </div>
-<% end %>
-
-<%= f.label :name, "Nombre" %>
-<%= f.text_field :name %>
-
-<%= f.label :surname, "Apellido" %>
-<%= f.text_field :surname %>
-
-<%= f.label :email %>
-<%= f.text_field :email %>
-
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.label :password_confirmation, "Confirmación" %>
-<%= f.password_field :password_confirmation %>
-
-<div class="field">
-	<%= f.label :privileges %><br />
-	<%= f.number_field :privileges %>
-
-<div class="actions">
-	<%= f.submit %>
-</div>
-<% end %>

@@ -1,6 +1,6 @@
-<% provide(:title, 'Platillos') %>
+<% provide(:title, 'Mesas') %>
 <div class="center hero-unit">
-	<h1>Lista de platillos</h1>
+	<h1>Lista de mesas</h1>
 
 	<br/>
 	
@@ -8,30 +8,26 @@
 		<thead>
 		<tr>
 			<th>Id</th>
-			<th>Nombre</th>
-			<th>Precio</th>
-			<th>Categoria</th>
-			<th>Imagen</th>
+			<th>Código</th>
+			<th>Mesero</th>
 			<th>Editar</th>
 			<th>Borrar</th>
 		</tr>
 		</thead>
 		<tbody>	
-			<% @courses.each do |course| %>
+			<% @tables.each do |table| %>
 			  <tr>
-				<td><%= course.id %></td>
-				<td><%= course.name %></td>
-			    <td style="text-align: right !important; padding-right: 37px;">$<%= course.price %>.00</td>
-			    <td><%= course.category_id %></td>
-			    <td><%= course.image %></td>
-			    <td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_course_path(course) %></td>
-			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), course, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+				<td><%= table.id %></td>
+				<td><%= table.code %></td>
+			    <td><%= Waiter.find(table.waiter_id).name + ' ' + Waiter.find(table.waiter_id).surname %></td>
+			    <td><%= link_to image_tag("edit.png", alt: 'Editar'), edit_table_path(table) %></td>
+			    <td><%= link_to image_tag("delete.png", alt: 'Borrar'), table, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
 			  </tr>
 			<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'Nuevo Platillo', new_course_path , class: "justify"%>
+	<%= link_to 'Nueva Mesa', new_table_path , class: "justify"%>
 
 	<br />
 </div>

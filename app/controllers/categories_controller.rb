@@ -25,6 +25,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    emessages
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    emessages
   end
 
   # POST /categories
   # POST /categories.json
   def create
     @category = Category.new(params[:category])
+    emessages
 
     respond_to do |format|
       if @category.save
@@ -57,7 +60,8 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
-
+    emessages
+    
     respond_to do |format|
       if @category.update_attributes(params[:category])
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }

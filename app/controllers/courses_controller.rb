@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   # GET /courses/new.json
   def new
     @course = Course.new
-    @category = Category.all
+    emessages
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,12 +36,14 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+    emessages
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(params[:course])
+    emessages
 
     respond_to do |format|
       if @course.save
@@ -58,7 +60,8 @@ class CoursesController < ApplicationController
   # PUT /courses/1.json
   def update
     @course = Course.find(params[:id])
-
+    emessages
+    
     respond_to do |format|
       if @course.update_attributes(params[:course])
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }

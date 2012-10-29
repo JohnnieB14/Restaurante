@@ -25,6 +25,7 @@ class WaitersController < ApplicationController
   # GET /waiters/new.json
   def new
     @waiter = Waiter.new
+    emessages
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,14 @@ class WaitersController < ApplicationController
   # GET /waiters/1/edit
   def edit
     @waiter = Waiter.find(params[:id])
+    emessages
   end
 
   # POST /waiters
   # POST /waiters.json
   def create
     @waiter = Waiter.new(params[:waiter])
+    emessages
 
     respond_to do |format|
       if @waiter.save
@@ -57,7 +60,8 @@ class WaitersController < ApplicationController
   # PUT /waiters/1.json
   def update
     @waiter = Waiter.find(params[:id])
-
+    emessages
+    
     respond_to do |format|
       if @waiter.update_attributes(params[:waiter])
         format.html { redirect_to @waiter, notice: 'Waiter was successfully updated.' }
