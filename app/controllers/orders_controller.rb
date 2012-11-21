@@ -42,6 +42,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @order.request_time = Time.now
 
     respond_to do |format|
       if @order.save
